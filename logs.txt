@@ -1,0 +1,486 @@
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ nano 01_bronze_cluster.py
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ spark-submit 01_bronze_cluster.py
+26/04/08 05:24:20 WARN Utils: Your hostname, LAPTOP-6M9T9VUD resolves to a loopback address: 127.0.1.1; using 10.255.255.254 instead (on interface lo)
+26/04/08 05:24:20 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+26/04/08 05:24:21 INFO SparkContext: Running Spark version 3.5.1
+26/04/08 05:24:21 INFO SparkContext: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/04/08 05:24:21 INFO SparkContext: Java version 11.0.30
+26/04/08 05:24:21 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/04/08 05:24:21 INFO ResourceUtils: ==============================================================
+26/04/08 05:24:21 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/04/08 05:24:21 INFO ResourceUtils: ==============================================================
+26/04/08 05:24:21 INFO SparkContext: Submitted application: 01_Bronze_Pipeline_Cluster
+26/04/08 05:24:21 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/04/08 05:24:21 INFO ResourceProfile: Limiting resource is cpu
+26/04/08 05:24:21 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/04/08 05:24:22 INFO SecurityManager: Changing view acls to: kewal
+26/04/08 05:24:22 INFO SecurityManager: Changing modify acls to: kewal
+26/04/08 05:24:22 INFO SecurityManager: Changing view acls groups to:
+26/04/08 05:24:22 INFO SecurityManager: Changing modify acls groups to:
+26/04/08 05:24:22 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: kewal; groups with view permissions: EMPTY; users with modify permissions: kewal; groups with modify permissions: EMPTY
+26/04/08 05:24:22 INFO Utils: Successfully started service 'sparkDriver' on port 44911.
+26/04/08 05:24:22 INFO SparkEnv: Registering MapOutputTracker
+26/04/08 05:24:22 INFO SparkEnv: Registering BlockManagerMaster
+26/04/08 05:24:22 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/04/08 05:24:22 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/04/08 05:24:22 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/04/08 05:24:22 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-3135f028-41d5-4b69-ac6a-96d57479754a
+26/04/08 05:24:22 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+26/04/08 05:24:22 INFO SparkEnv: Registering OutputCommitCoordinator
+26/04/08 05:24:22 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/04/08 05:24:22 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/04/08 05:24:22 INFO Executor: Starting executor ID driver on host 10.255.255.254
+26/04/08 05:24:22 INFO Executor: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/04/08 05:24:22 INFO Executor: Java version 11.0.30
+26/04/08 05:24:22 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/04/08 05:24:22 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@2706bf8 for default.
+26/04/08 05:24:22 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 46085.
+26/04/08 05:24:22 INFO NettyBlockTransferService: Server created on 10.255.255.254:46085
+26/04/08 05:24:22 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/04/08 05:24:22 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 10.255.255.254, 46085, None)
+26/04/08 05:24:22 INFO BlockManagerMasterEndpoint: Registering block manager 10.255.255.254:46085 with 434.4 MiB RAM, BlockManagerId(driver, 10.255.255.254, 46085, None)
+26/04/08 05:24:22 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 10.255.255.254, 46085, None)
+26/04/08 05:24:22 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 10.255.255.254, 46085, None)
+26/04/08 05:24:23 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 292.4 KiB, free 434.1 MiB)
+26/04/08 05:24:23 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 32.7 KiB, free 434.1 MiB)
+26/04/08 05:24:23 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 10.255.255.254:46085 (size: 32.7 KiB, free: 434.4 MiB)
+26/04/08 05:24:23 INFO SparkContext: Created broadcast 0 from binaryFiles at NativeMethodAccessorImpl.java:0
+26/04/08 05:24:24 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+26/04/08 05:24:24 INFO SharedState: Warehouse path is 'file:/home/kewal/bda_project/spark-warehouse'.
+Submitting FITS extraction to YARN worker nodes...
+26/04/08 05:24:26 INFO ParquetUtils: Using default output committer for Parquet: org.apache.parquet.hadoop.ParquetOutputCommitter
+26/04/08 05:24:26 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+26/04/08 05:24:26 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/04/08 05:24:26 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+26/04/08 05:24:26 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+26/04/08 05:24:26 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/04/08 05:24:26 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+26/04/08 05:24:29 INFO CodeGenerator: Code generated in 195.6217 ms
+26/04/08 05:24:29 INFO FileInputFormat: Total input files to process : 20
+26/04/08 05:24:29 INFO FileInputFormat: Total input files to process : 20
+26/04/08 05:24:31 INFO SparkContext: Starting job: parquet at NativeMethodAccessorImpl.java:0
+26/04/08 05:24:31 INFO DAGScheduler: Got job 0 (parquet at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/04/08 05:24:31 INFO DAGScheduler: Final stage: ResultStage 0 (parquet at NativeMethodAccessorImpl.java:0)
+26/04/08 05:24:31 INFO DAGScheduler: Parents of final stage: List()
+26/04/08 05:24:31 INFO DAGScheduler: Missing parents: List()
+26/04/08 05:24:31 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[6] at parquet at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/04/08 05:24:31 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 230.4 KiB, free 433.9 MiB)
+26/04/08 05:24:31 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 85.2 KiB, free 433.8 MiB)
+26/04/08 05:24:31 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 10.255.255.254:46085 (size: 85.2 KiB, free: 434.3 MiB)
+26/04/08 05:24:31 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1585
+26/04/08 05:24:31 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[6] at parquet at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/04/08 05:24:31 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+26/04/08 05:24:31 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (10.255.255.254, executor driver, partition 0, PROCESS_LOCAL, 9485 bytes)
+26/04/08 05:24:31 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+26/04/08 05:24:31 INFO BinaryFileRDD: Input split: Paths:/user/ztf/smoke_test/3205216110115015009_difference.fits:0+20160,/user/ztf/smoke_test/3205216110115015009_science.fits:0+20160,/user/ztf/smoke_test/3205216110115015009_template.fits:0+20160,/user/ztf/smoke_test/3205216110115015012_difference.fits:0+20160,/user/ztf/smoke_test/3205216110115015012_science.fits:0+20160,/user/ztf/smoke_test/3205216110115015012_template.fits:0+20160,/user/ztf/smoke_test/3205216110115015013_difference.fits:0+20160,/user/ztf/smoke_test/3205216110115015013_science.fits:0+20160,/user/ztf/smoke_test/3205216110115015013_template.fits:0+20160,/user/ztf/smoke_test/3205216110315010009_difference.fits:0+20160,/user/ztf/smoke_test/3205216110315010009_science.fits:0+20160,/user/ztf/smoke_test/3205216110315010009_template.fits:0+20160,/user/ztf/smoke_test/3205216110315015001_difference.fits:0+20160,/user/ztf/smoke_test/3205216110315015001_science.fits:0+20160,/user/ztf/smoke_test/3205216110315015001_template.fits:0+20160,/user/ztf/smoke_test/3205216110315015010_difference.fits:0+20160,/user/ztf/smoke_test/3205216110315015010_science.fits:0+20160,/user/ztf/smoke_test/3205216110315015010_template.fits:0+20160,/user/ztf/smoke_test/3205216110415010009_difference.fits:0+20160,/user/ztf/smoke_test/3205216110415010009_science.fits:0+20160
+26/04/08 05:24:32 INFO CodeGenerator: Code generated in 19.103594 ms
+26/04/08 05:24:32 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+26/04/08 05:24:32 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/04/08 05:24:32 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+26/04/08 05:24:32 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+26/04/08 05:24:32 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/04/08 05:24:32 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+26/04/08 05:24:32 INFO CodecConfig: Compression: SNAPPY
+26/04/08 05:24:32 INFO CodecConfig: Compression: SNAPPY
+26/04/08 05:24:32 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+26/04/08 05:24:32 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+{
+  "type" : "struct",
+  "fields" : [ {
+    "name" : "file_path",
+    "type" : "string",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "object_id",
+    "type" : "string",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "image_type",
+    "type" : "string",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "median_bg",
+    "type" : "float",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "mean_sub",
+    "type" : "float",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "std_sub",
+    "type" : "float",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "bright_pixels",
+    "type" : "integer",
+    "nullable" : true,
+    "metadata" : { }
+  }, {
+    "name" : "status",
+    "type" : "string",
+    "nullable" : true,
+    "metadata" : { }
+  } ]
+}
+and corresponding Parquet message type:
+message spark_schema {
+  optional binary file_path (STRING);
+  optional binary object_id (STRING);
+  optional binary image_type (STRING);
+  optional float median_bg;
+  optional float mean_sub;
+  optional float std_sub;
+  optional int32 bright_pixels;
+  optional binary status (STRING);
+}
+
+
+26/04/08 05:24:32 INFO CodecPool: Got brand-new compressor [.snappy]
+26/04/08 05:24:34 INFO PythonRunner: Times: total = 2386, boot = 498, init = 567, finish = 1321
+26/04/08 05:24:35 INFO FileOutputCommitter: Saved output of task 'attempt_202604080524318697575767622667762_0000_m_000000_0' to hdfs://master:9000/user/ztf/smoke_test_output_bronze.parquet/_temporary/0/task_202604080524318697575767622667762_0000_m_000000
+26/04/08 05:24:35 INFO SparkHadoopMapRedUtil: attempt_202604080524318697575767622667762_0000_m_000000_0: Committed. Elapsed time: 225 ms.
+26/04/08 05:24:35 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 3047 bytes result sent to driver
+26/04/08 05:24:35 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 3969 ms on 10.255.255.254 (executor driver) (1/1)
+26/04/08 05:24:35 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+26/04/08 05:24:35 INFO PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 44791
+26/04/08 05:24:35 INFO DAGScheduler: ResultStage 0 (parquet at NativeMethodAccessorImpl.java:0) finished in 4.077 s
+26/04/08 05:24:35 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+26/04/08 05:24:35 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+26/04/08 05:24:35 INFO DAGScheduler: Job 0 finished: parquet at NativeMethodAccessorImpl.java:0, took 4.113197 s
+26/04/08 05:24:35 INFO FileFormatWriter: Start to commit write Job efeb7a1c-4511-4964-b3f3-8e959e24995d.
+26/04/08 05:24:36 INFO FileFormatWriter: Write Job efeb7a1c-4511-4964-b3f3-8e959e24995d committed. Elapsed time: 745 ms.
+26/04/08 05:24:36 INFO FileFormatWriter: Finished processing stats for write job efeb7a1c-4511-4964-b3f3-8e959e24995d.
+26/04/08 05:24:36 INFO CodeGenerator: Code generated in 16.72514 ms
+26/04/08 05:24:36 INFO SparkContext: Starting job: showString at NativeMethodAccessorImpl.java:0
+26/04/08 05:24:36 INFO DAGScheduler: Got job 1 (showString at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/04/08 05:24:36 INFO DAGScheduler: Final stage: ResultStage 1 (showString at NativeMethodAccessorImpl.java:0)
+26/04/08 05:24:36 INFO DAGScheduler: Parents of final stage: List()
+26/04/08 05:24:36 INFO DAGScheduler: Missing parents: List()
+26/04/08 05:24:36 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[8] at showString at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/04/08 05:24:36 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 29.3 KiB, free 433.7 MiB)
+26/04/08 05:24:36 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 14.2 KiB, free 433.7 MiB)
+26/04/08 05:24:36 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 10.255.255.254:46085 (size: 14.2 KiB, free: 434.3 MiB)
+26/04/08 05:24:36 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1585
+26/04/08 05:24:36 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[8] at showString at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/04/08 05:24:36 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+26/04/08 05:24:36 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (10.255.255.254, executor driver, partition 0, PROCESS_LOCAL, 9485 bytes)
+26/04/08 05:24:36 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+26/04/08 05:24:36 INFO BinaryFileRDD: Input split: Paths:/user/ztf/smoke_test/3205216110115015009_difference.fits:0+20160,/user/ztf/smoke_test/3205216110115015009_science.fits:0+20160,/user/ztf/smoke_test/3205216110115015009_template.fits:0+20160,/user/ztf/smoke_test/3205216110115015012_difference.fits:0+20160,/user/ztf/smoke_test/3205216110115015012_science.fits:0+20160,/user/ztf/smoke_test/3205216110115015012_template.fits:0+20160,/user/ztf/smoke_test/3205216110115015013_difference.fits:0+20160,/user/ztf/smoke_test/3205216110115015013_science.fits:0+20160,/user/ztf/smoke_test/3205216110115015013_template.fits:0+20160,/user/ztf/smoke_test/3205216110315010009_difference.fits:0+20160,/user/ztf/smoke_test/3205216110315010009_science.fits:0+20160,/user/ztf/smoke_test/3205216110315010009_template.fits:0+20160,/user/ztf/smoke_test/3205216110315015001_difference.fits:0+20160,/user/ztf/smoke_test/3205216110315015001_science.fits:0+20160,/user/ztf/smoke_test/3205216110315015001_template.fits:0+20160,/user/ztf/smoke_test/3205216110315015010_difference.fits:0+20160,/user/ztf/smoke_test/3205216110315015010_science.fits:0+20160,/user/ztf/smoke_test/3205216110315015010_template.fits:0+20160,/user/ztf/smoke_test/3205216110415010009_difference.fits:0+20160,/user/ztf/smoke_test/3205216110415010009_science.fits:0+20160
+26/04/08 05:24:36 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 10.255.255.254:46085 in memory (size: 85.2 KiB, free: 434.4 MiB)
+26/04/08 05:24:36 INFO CodeGenerator: Code generated in 16.582705 ms
+26/04/08 05:24:38 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 2946 bytes result sent to driver
+26/04/08 05:24:38 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 1790 ms on 10.255.255.254 (executor driver) (1/1)
+26/04/08 05:24:38 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool
+26/04/08 05:24:38 INFO DAGScheduler: ResultStage 1 (showString at NativeMethodAccessorImpl.java:0) finished in 1.808 s
+26/04/08 05:24:38 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+26/04/08 05:24:38 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+26/04/08 05:24:38 INFO DAGScheduler: Job 1 finished: showString at NativeMethodAccessorImpl.java:0, took 1.814671 s
+26/04/08 05:24:38 INFO BlockManagerInfo: Removed broadcast_2_piece0 on 10.255.255.254:46085 in memory (size: 14.2 KiB, free: 434.4 MiB)
+26/04/08 05:24:39 INFO CodeGenerator: Code generated in 14.387422 ms
++--------------------+-------------------+----------+-----------+----------+---------+-------------+-------+
+|           file_path|          object_id|image_type|  median_bg|  mean_sub|  std_sub|bright_pixels| status|
++--------------------+-------------------+----------+-----------+----------+---------+-------------+-------+
+|hdfs://master:900...|3205216110115015009|DIFFERENCE|  0.5467257| 0.6060244|11.970403|            9|SUCCESS|
+|hdfs://master:900...|3205216110115015009|   SCIENCE|  145.24652| 2.5502942|26.792778|           20|SUCCESS|
+|hdfs://master:900...|3205216110115015009|  TEMPLATE|  144.00635| 2.6063344| 19.38743|           17|SUCCESS|
+|hdfs://master:900...|3205216110115015012|DIFFERENCE|  0.6318442| 0.9443591|21.839039|           16|SUCCESS|
+|hdfs://master:900...|3205216110115015012|   SCIENCE|  144.25757|  8.957454|119.59515|           21|SUCCESS|
+|hdfs://master:900...|3205216110115015012|  TEMPLATE|  143.12862|  8.506397| 95.13939|           24|SUCCESS|
+|hdfs://master:900...|3205216110115015013|DIFFERENCE|-0.38282096|0.32551944|11.257817|            7|SUCCESS|
+|hdfs://master:900...|3205216110115015013|   SCIENCE|  143.90247| 1.3524847|23.289335|           17|SUCCESS|
+|hdfs://master:900...|3205216110115015013|  TEMPLATE|     144.11| 1.2069067|  18.7542|           16|SUCCESS|
+|hdfs://master:900...|3205216110315010009|DIFFERENCE|-0.48839524|0.93978035|53.340527|           17|SUCCESS|
++--------------------+-------------------+----------+-----------+----------+---------+-------------+-------+
+only showing top 10 rows
+
+Bronze Layer Smoke Test complete! Data safely written to: hdfs://master:9000/user/ztf/smoke_test_output_bronze.parquet
+26/04/08 05:24:39 INFO SparkContext: SparkContext is stopping with exitCode 0.
+26/04/08 05:24:39 INFO SparkUI: Stopped Spark web UI at http://10.255.255.254:4040
+26/04/08 05:24:39 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+26/04/08 05:24:39 INFO MemoryStore: MemoryStore cleared
+26/04/08 05:24:39 INFO BlockManager: BlockManager stopped
+26/04/08 05:24:39 INFO BlockManagerMaster: BlockManagerMaster stopped
+26/04/08 05:24:39 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+26/04/08 05:24:39 INFO SparkContext: Successfully stopped SparkContext
+26/04/08 05:24:39 INFO ShutdownHookManager: Shutdown hook called
+26/04/08 05:24:39 INFO ShutdownHookManager: Deleting directory /tmp/spark-211104ac-970f-4712-a0c3-8c1f5681efcc/pyspark-550325f5-aae2-4e04-b3e0-a83502f278c3
+26/04/08 05:24:39 INFO ShutdownHookManager: Deleting directory /tmp/spark-a79b62b2-c5a0-4702-9be7-0b617c713b92
+26/04/08 05:24:39 INFO ShutdownHookManager: Deleting directory /tmp/spark-211104ac-970f-4712-a0c3-8c1f5681efcc
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ hdfs dfs -ls /user/
+2026-04-08 05:30:26,329 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 1 items
+drwxrwxrwx   - nonce supergroup          0 2026-04-08 05:24 /user/ztf
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ hdfs dfs -ls /user/ztf/
+2026-04-08 05:30:30,462 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 6 items
+drwxrwxrwx   - nonce supergroup          0 2026-04-06 17:39 /user/ztf/bronze
+drwxrwxrwx   - nonce supergroup          0 2026-04-06 17:39 /user/ztf/gold
+drwxrwxrwx   - nonce supergroup          0 2026-04-07 05:35 /user/ztf/raw
+drwxrwxrwx   - nonce supergroup          0 2026-04-06 17:39 /user/ztf/silver
+drwxr-xr-x   - nonce supergroup          0 2026-04-08 04:41 /user/ztf/smoke_test
+drwxr-xr-x   - kewal supergroup          0 2026-04-08 05:24 /user/ztf/smoke_test_output_bronze.parquet
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ hdfs dfs -mkdir -p /user/ztf/subset_12k/
+2026-04-08 05:31:32,500 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ hdfs dfs -ls /user/ztf/raw/fits | grep "\.fits" | head -n 12000 | awk '{print $8}' > subset_12k.txt
+2026-04-08 05:31:41,346 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ cat subset_12k.txt | xargs -n 100 sh -c 'hdfs dfs -cp "$@" /user/ztf/subset_12k/' _
+2026-04-08 05:32:17,978 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-04-08 05:34:17,972 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-04-08 05:36:20,649 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-04-08 05:38:24,884 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+^C
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ hdfs dfs -count /user/ztf/subset_12k/
+2026-04-08 05:39:34,218 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+           1          340            6845760 /user/ztf/subset_12k
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ ls
+01_bronze_cluster.py              hdfs_read.py                       subset_12k.txt
+adaptive_resource_manager.py      multi_telescope_ingestion.py       wordcount.py
+astronomical_object_detection.py  rdd_job.py                         ztf_env
+debug_quality.py                  scalability_benchmark.py           ztf_env.tar.gz
+fits_pipeline_rdd.py              streaming_astronomical_monitor.py  ztf_extract_cutouts.py
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ rm 01_bronze_cluster.py
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ nano 01_bronze_cluster.py
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ spark-submit \
+  --master yarn \
+  --deploy-mode cluster \
+  --num-executors 4 \
+  --executor-cores 2 \
+  --executor-memory 4G \
+  --driver-memory 2G \
+  --conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=./environment/bin/python \
+  --archives ztf_env.tar.gz#environment \
+  01_bronze_cluster.py
+26/04/08 05:45:06 WARN Utils: Your hostname, LAPTOP-6M9T9VUD resolves to a loopback address: 127.0.1.1; using 10.255.255.254 instead (on interface lo)
+26/04/08 05:45:06 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+Exception in thread "main" org.apache.spark.SparkException: When running with master 'yarn' either HADOOP_CONF_DIR or YARN_CONF_DIR must be set in the environment.
+        at org.apache.spark.deploy.SparkSubmitArguments.error(SparkSubmitArguments.scala:650)
+        at org.apache.spark.deploy.SparkSubmitArguments.validateSubmitArguments(SparkSubmitArguments.scala:281)
+        at org.apache.spark.deploy.SparkSubmitArguments.validateArguments(SparkSubmitArguments.scala:237)
+        at org.apache.spark.deploy.SparkSubmitArguments.<init>(SparkSubmitArguments.scala:122)
+        at org.apache.spark.deploy.SparkSubmit$$anon$2$$anon$3.<init>(SparkSubmit.scala:1103)
+        at org.apache.spark.deploy.SparkSubmit$$anon$2.parseArguments(SparkSubmit.scala:1103)
+        at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:86)
+        at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1120)
+        at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1129)
+        at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ spark-submit 01_bronze_cluster.py
+26/04/08 05:45:20 WARN Utils: Your hostname, LAPTOP-6M9T9VUD resolves to a loopback address: 127.0.1.1; using 10.255.255.254 instead (on interface lo)
+26/04/08 05:45:20 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+26/04/08 05:45:21 INFO SparkContext: Running Spark version 3.5.1
+26/04/08 05:45:21 INFO SparkContext: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/04/08 05:45:21 INFO SparkContext: Java version 11.0.30
+26/04/08 05:45:21 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/04/08 05:45:21 INFO ResourceUtils: ==============================================================
+26/04/08 05:45:21 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/04/08 05:45:21 INFO ResourceUtils: ==============================================================
+26/04/08 05:45:21 INFO SparkContext: Submitted application: 01_Bronze_Pipeline_Cluster
+26/04/08 05:45:21 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/04/08 05:45:21 INFO ResourceProfile: Limiting resource is cpu
+26/04/08 05:45:21 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/04/08 05:45:21 INFO SecurityManager: Changing view acls to: kewal
+26/04/08 05:45:21 INFO SecurityManager: Changing modify acls to: kewal
+26/04/08 05:45:21 INFO SecurityManager: Changing view acls groups to:
+26/04/08 05:45:21 INFO SecurityManager: Changing modify acls groups to:
+26/04/08 05:45:21 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: kewal; groups with view permissions: EMPTY; users with modify permissions: kewal; groups with modify permissions: EMPTY
+26/04/08 05:45:21 INFO Utils: Successfully started service 'sparkDriver' on port 46337.
+26/04/08 05:45:22 INFO SparkEnv: Registering MapOutputTracker
+26/04/08 05:45:22 INFO SparkEnv: Registering BlockManagerMaster
+26/04/08 05:45:22 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/04/08 05:45:22 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/04/08 05:45:22 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/04/08 05:45:22 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-6cba8457-cf59-4994-8c9a-7d100cbf8b89
+26/04/08 05:45:22 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+26/04/08 05:45:22 INFO SparkEnv: Registering OutputCommitCoordinator
+26/04/08 05:45:22 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/04/08 05:45:22 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/04/08 05:45:22 INFO Executor: Starting executor ID driver on host 10.255.255.254
+26/04/08 05:45:22 INFO Executor: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/04/08 05:45:22 INFO Executor: Java version 11.0.30
+26/04/08 05:45:22 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/04/08 05:45:22 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@e4cdcbd for default.
+26/04/08 05:45:22 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 45065.
+26/04/08 05:45:22 INFO NettyBlockTransferService: Server created on 10.255.255.254:45065
+26/04/08 05:45:22 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/04/08 05:45:22 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 10.255.255.254, 45065, None)
+26/04/08 05:45:22 INFO BlockManagerMasterEndpoint: Registering block manager 10.255.255.254:45065 with 434.4 MiB RAM, BlockManagerId(driver, 10.255.255.254, 45065, None)
+26/04/08 05:45:22 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 10.255.255.254, 45065, None)
+26/04/08 05:45:22 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 10.255.255.254, 45065, None)
+
+[SYSTEM] Submitting FITS extraction to YARN worker nodes...
+
+[SUCCESS] Bronze Layer Parquet generated. Here is a sample:
++--------------------+-------------------+----------+-----------+----------+---------+-------------+-------+
+|           file_path|          object_id|image_type|  median_bg|  mean_sub|  std_sub|bright_pixels| status|
++--------------------+-------------------+----------+-----------+----------+---------+-------------+-------+
+|hdfs://master:900...|3205216110115015009|DIFFERENCE|  0.5467257| 0.6060244|11.970403|            9|SUCCESS|
+|hdfs://master:900...|3205216110115015009|   SCIENCE|  145.24652| 2.5502942|26.792778|           20|SUCCESS|
+|hdfs://master:900...|3205216110115015009|  TEMPLATE|  144.00635| 2.6063344| 19.38743|           17|SUCCESS|
+|hdfs://master:900...|3205216110115015012|DIFFERENCE|  0.6318442| 0.9443591|21.839039|           16|SUCCESS|
+|hdfs://master:900...|3205216110115015012|   SCIENCE|  144.25757|  8.957454|119.59515|           21|SUCCESS|
+|hdfs://master:900...|3205216110115015012|  TEMPLATE|  143.12862|  8.506397| 95.13939|           24|SUCCESS|
+|hdfs://master:900...|3205216110115015013|DIFFERENCE|-0.38282096|0.32551944|11.257817|            7|SUCCESS|
+|hdfs://master:900...|3205216110115015013|   SCIENCE|  143.90247| 1.3524847|23.289335|           17|SUCCESS|
+|hdfs://master:900...|3205216110115015013|  TEMPLATE|     144.11| 1.2069067|  18.7542|           16|SUCCESS|
+|hdfs://master:900...|3205216110315010009|DIFFERENCE|-0.48839524|0.93978035|53.340527|           17|SUCCESS|
++--------------------+-------------------+----------+-----------+----------+---------+-------------+-------+
+only showing top 10 rows
+
+
+[INFO] Data safely written to: hdfs://master:9000/user/ztf/subset_12k_bronze.parquet
+
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ nano 02_silver_cluster.py
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ spark-submit 02_silver_cluster.py
+26/04/08 05:51:11 WARN Utils: Your hostname, LAPTOP-6M9T9VUD resolves to a loopback address: 127.0.1.1; using 10.255.255.254 instead (on interface lo)
+26/04/08 05:51:11 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+26/04/08 05:51:12 INFO SparkContext: Running Spark version 3.5.1
+26/04/08 05:51:12 INFO SparkContext: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/04/08 05:51:12 INFO SparkContext: Java version 11.0.30
+26/04/08 05:51:12 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/04/08 05:51:12 INFO ResourceUtils: ==============================================================
+26/04/08 05:51:12 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/04/08 05:51:12 INFO ResourceUtils: ==============================================================
+26/04/08 05:51:12 INFO SparkContext: Submitted application: 02_Silver_Pipeline_Cluster
+26/04/08 05:51:12 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/04/08 05:51:12 INFO ResourceProfile: Limiting resource is cpu
+26/04/08 05:51:12 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/04/08 05:51:12 INFO SecurityManager: Changing view acls to: kewal
+26/04/08 05:51:12 INFO SecurityManager: Changing modify acls to: kewal
+26/04/08 05:51:12 INFO SecurityManager: Changing view acls groups to:
+26/04/08 05:51:12 INFO SecurityManager: Changing modify acls groups to:
+26/04/08 05:51:12 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: kewal; groups with view permissions: EMPTY; users with modify permissions: kewal; groups with modify permissions: EMPTY
+26/04/08 05:51:12 INFO Utils: Successfully started service 'sparkDriver' on port 46249.
+26/04/08 05:51:12 INFO SparkEnv: Registering MapOutputTracker
+26/04/08 05:51:12 INFO SparkEnv: Registering BlockManagerMaster
+26/04/08 05:51:12 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/04/08 05:51:12 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/04/08 05:51:12 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/04/08 05:51:12 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-3a6306c3-d15f-4f6d-8499-d8581a0b170a
+26/04/08 05:51:12 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+26/04/08 05:51:12 INFO SparkEnv: Registering OutputCommitCoordinator
+26/04/08 05:51:12 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/04/08 05:51:12 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/04/08 05:51:13 INFO Executor: Starting executor ID driver on host 10.255.255.254
+26/04/08 05:51:13 INFO Executor: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/04/08 05:51:13 INFO Executor: Java version 11.0.30
+26/04/08 05:51:13 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/04/08 05:51:13 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@1712dd6f for default.
+26/04/08 05:51:13 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 44751.
+26/04/08 05:51:13 INFO NettyBlockTransferService: Server created on 10.255.255.254:44751
+26/04/08 05:51:13 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/04/08 05:51:13 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 10.255.255.254, 44751, None)
+26/04/08 05:51:13 INFO BlockManagerMasterEndpoint: Registering block manager 10.255.255.254:44751 with 434.4 MiB RAM, BlockManagerId(driver, 10.255.255.254, 44751, None)
+26/04/08 05:51:13 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 10.255.255.254, 44751, None)
+26/04/08 05:51:13 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 10.255.255.254, 44751, None)
+
+[SYSTEM] Reading Bronze Data from: hdfs://master:9000/user/ztf/subset_12k_bronze.parquet
+[SYSTEM] Pivoting data structure to create wide ML features...
+[SYSTEM] Submitting Silver transformation to YARN worker nodes...
+
+[SUCCESS] Silver Layer complete! Data safely written. Here is a sample:
++-------------------+--------------------+-------------------+------------------+------------------------+-----------------+----------------+---------------+---------------------+------------------+-----------------+----------------+----------------------+
+|object_id          |DIFFERENCE_median_bg|DIFFERENCE_mean_sub|DIFFERENCE_std_sub|DIFFERENCE_bright_pixels|SCIENCE_median_bg|SCIENCE_mean_sub|SCIENCE_std_sub|SCIENCE_bright_pixels|TEMPLATE_median_bg|TEMPLATE_mean_sub|TEMPLATE_std_sub|TEMPLATE_bright_pixels|
++-------------------+--------------------+-------------------+------------------+------------------------+-----------------+----------------+---------------+---------------------+------------------+-----------------+----------------+----------------------+
+|3205216112215015009|0.48001003          |0.12132279         |12.33867          |9                       |160.06384        |0.24222197      |12.85354       |16                   |159.43774         |0.26697955       |4.344018        |23                    |
+|3205216110315015010|0.3838581           |-0.09680514        |10.456645         |9                       |129.20114        |0.05796237      |10.3749485     |6                    |128.94            |0.029775523      |1.5941918       |22                    |
+|3205216114015015005|0.4086227           |0.58327025         |26.726936         |15                      |156.88068        |18.623375       |250.57109      |22                   |156.26884         |18.09526         |267.2099        |17                    |
+|3205216113215010003|0.40454477          |1.2942128          |25.243008         |22                      |135.18134        |0.8655277       |16.726774      |18                   |135.16579         |2.6006768        |38.34495        |19                    |
+|3205216115315015003|0.9037447           |0.5726704          |13.870815         |16                      |125.99289        |2.0595057       |28.675358      |31                   |124.792465        |1.7698315        |26.23428        |18                    |
++-------------------+--------------------+-------------------+------------------+------------------------+-----------------+----------------+---------------+---------------------+------------------+-----------------+----------------+----------------------+
+only showing top 5 rows
+
+
+[INFO] Silver Parquet saved to: hdfs://master:9000/user/ztf/subset_12k_silver.parquet
+
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ nano 03_gold_cluster.py
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ spark-submit 03_gold_cluster.py
+26/04/08 05:54:20 WARN Utils: Your hostname, LAPTOP-6M9T9VUD resolves to a loopback address: 127.0.1.1; using 10.255.255.254 instead (on interface lo)
+26/04/08 05:54:20 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+Traceback (most recent call last):
+  File "/home/kewal/bda_project/03_gold_cluster.py", line 2, in <module>
+    from pyspark.ml.feature import VectorAssembler, StandardScaler
+  File "/home/kewal/spark/python/lib/pyspark.zip/pyspark/ml/__init__.py", line 31, in <module>
+  File "/home/kewal/spark/python/lib/pyspark.zip/pyspark/ml/image.py", line 31, in <module>
+ModuleNotFoundError: No module named 'distutils'
+26/04/08 05:54:22 INFO ShutdownHookManager: Shutdown hook called
+26/04/08 05:54:22 INFO ShutdownHookManager: Deleting directory /tmp/spark-481978f3-cf75-4d2d-85b3-636f51eddb86
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ pip install distutils
+ERROR: Could not find a version that satisfies the requirement distutils (from versions: none)
+ERROR: No matching distribution found for distutils
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ pip install distutils
+ERROR: Could not find a version that satisfies the requirement distutils (from versions: none)
+ERROR: No matching distribution found for distutils
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ pip install setuptools
+Collecting setuptools
+  Using cached setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)
+Using cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)
+Installing collected packages: setuptools
+Successfully installed setuptools-82.0.1
+(ztf_env) kewal@LAPTOP-6M9T9VUD:~/bda_project$ spark-submit 03_gold_cluster.py
+26/04/08 05:56:17 WARN Utils: Your hostname, LAPTOP-6M9T9VUD resolves to a loopback address: 127.0.1.1; using 10.255.255.254 instead (on interface lo)
+26/04/08 05:56:17 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+26/04/08 05:56:18 INFO SparkContext: Running Spark version 3.5.1
+26/04/08 05:56:18 INFO SparkContext: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/04/08 05:56:18 INFO SparkContext: Java version 11.0.30
+26/04/08 05:56:18 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/04/08 05:56:18 INFO ResourceUtils: ==============================================================
+26/04/08 05:56:18 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/04/08 05:56:18 INFO ResourceUtils: ==============================================================
+26/04/08 05:56:18 INFO SparkContext: Submitted application: 03_Gold_Clustering_Cluster
+26/04/08 05:56:18 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/04/08 05:56:18 INFO ResourceProfile: Limiting resource is cpu
+26/04/08 05:56:18 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/04/08 05:56:18 INFO SecurityManager: Changing view acls to: kewal
+26/04/08 05:56:18 INFO SecurityManager: Changing modify acls to: kewal
+26/04/08 05:56:18 INFO SecurityManager: Changing view acls groups to:
+26/04/08 05:56:18 INFO SecurityManager: Changing modify acls groups to:
+26/04/08 05:56:18 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: kewal; groups with view permissions: EMPTY; users with modify permissions: kewal; groups with modify permissions: EMPTY
+26/04/08 05:56:19 INFO Utils: Successfully started service 'sparkDriver' on port 45071.
+26/04/08 05:56:19 INFO SparkEnv: Registering MapOutputTracker
+26/04/08 05:56:19 INFO SparkEnv: Registering BlockManagerMaster
+26/04/08 05:56:19 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/04/08 05:56:19 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/04/08 05:56:19 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/04/08 05:56:19 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-bb62a130-ee50-4148-aebc-9fbbb3636b90
+26/04/08 05:56:19 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+26/04/08 05:56:19 INFO SparkEnv: Registering OutputCommitCoordinator
+26/04/08 05:56:19 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/04/08 05:56:19 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/04/08 05:56:19 INFO Executor: Starting executor ID driver on host 10.255.255.254
+26/04/08 05:56:19 INFO Executor: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/04/08 05:56:19 INFO Executor: Java version 11.0.30
+26/04/08 05:56:19 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/04/08 05:56:19 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@2f7c2c21 for default.
+26/04/08 05:56:19 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 46311.
+26/04/08 05:56:19 INFO NettyBlockTransferService: Server created on 10.255.255.254:46311
+26/04/08 05:56:19 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/04/08 05:56:19 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 10.255.255.254, 46311, None)
+26/04/08 05:56:19 INFO BlockManagerMasterEndpoint: Registering block manager 10.255.255.254:46311 with 434.4 MiB RAM, BlockManagerId(driver, 10.255.255.254, 46311, None)
+26/04/08 05:56:19 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 10.255.255.254, 46311, None)
+26/04/08 05:56:19 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 10.255.255.254, 46311, None)
+
+[SYSTEM] Loading Silver Features from: hdfs://master:9000/user/ztf/subset_12k_silver.parquet
+[SYSTEM] Vectorizing and Scaling features...
+[SYSTEM] Training Distributed K-Means Model (k=3)...
+26/04/08 05:56:27 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+
+[SUCCESS] Model Training Complete!
+[INFO] Silhouette Score (Quality): 0.6190
+
+[SYSTEM] Astronomical Object Clusters Distribution:
++-------+-----+
+|cluster|count|
++-------+-----+
+|      0|   67|
+|      1|    6|
+|      2|   40|
++-------+-----+
+
+
+[SYSTEM] Saving Final Gold Machine Learning Output...
+[SUCCESS] Gold Layer complete! Data safely written to: hdfs://master:9000/user/ztf/subset_12k_gold.parquet
